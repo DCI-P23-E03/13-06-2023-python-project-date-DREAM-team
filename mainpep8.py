@@ -79,18 +79,18 @@ elif user_input == "6":
 # displays the current time from the chosen timezone
 elif user_input == "7":
 
-    time_in_Sydney = dt.datetime.now(pytz.timezone('Australia/Sydney')).strftime('%Y-%m-%d %H:%M:%S')
+    time_in_Sydney = dt.datetime.now(pytz.timezone('Australia/Sydney')).strftime('%Y-%m-%d %H:%M:%S')   # display the time in Sydney 
 
     time_in_Berlin = ("Current time in Berlin:", dt.datetime.now(pytz.timezone('Europe/Berlin')).strftime('%Y-%m-%d %H:%M:%S'))
     print("Time in Sydney:", time_in_Sydney)
     print("Time in Berlin:", time_in_Berlin)
     print("Difference between Berlin and Sydney: 8 hours")
-
+# displays the current times in Berlin and Sydney and the difference between them.
 elif user_input == "8":
-    print("Get ready to laugh")
+    print("Get ready to laugh") 
     tm.sleep(3)
 
-    random_number = random.randint(1, 4)
+    random_number = random.randint(1, 4) #generates the number between 1 and 4
     if random_number == 1:
         print("Why do programmers prefer dark mode?")
         tm.sleep(3)
@@ -107,13 +107,13 @@ elif user_input == "8":
         print("Why don't programmers like nature?")
         tm.sleep(3)
         print("It has too many bugs!")
-
-elif user_input == "9":
+# Prints joke by the random number 
+elif user_input == "9":  
     print("Ready for a surprise?")
     while True:
         for symbol in ['-', '\\', '|', '/']:
             print(f'\rLoading: {symbol,symbol,symbol}', end='', flush=True)
             tm.sleep(0.1)
-
+# displays endless infinite progress loading bar 
 else:
-    print("Invalid input. Please try again.")
+    print("Invalid input. Please try again.") 
