@@ -79,14 +79,10 @@ elif choose_timezone == "5":
 
 
 
-print("Current time in Sydney: ", dt.datetime.now(pytz.timezone('Australia/Sydney')).strftime('%Y-%m-%d %H:%M:%S'))
+time_in_Sydney = dt.datetime.now(pytz.timezone('Australia/Sydney')).strftime('%Y-%m-%d %H:%M:%S')
 
-print(type(dt.datetime.now(pytz.timezone('Australia/Sydney'))))
-
-
-#end_of_the_world_delta = (now - (dt.datetime.now(pytz.timezone('Australia/Sydney'))))
-
-#print(end_of_the_world_delta)
-
-
+time_in_Berlin = ("Current time in Berlin: ", dt.datetime.now(pytz.timezone('Europe/Berlin')).strftime('%Y-%m-%d %H:%M:%S'))
+print("Time in Sydney: ", time_in_Sydney)
+print("Time in Berlin: ", time_in_Berlin)
+print("Difference between Berlin and Sydney: ")
 
