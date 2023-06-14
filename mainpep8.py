@@ -5,6 +5,8 @@ from dateutil.relativedelta import relativedelta
 import pytz
 import random
 
+# imported different modules to use in our code
+
 
 user_input = input("""Enter a number to choose an option:
                    1. Display the current date and time
@@ -17,39 +19,41 @@ user_input = input("""Enter a number to choose an option:
                    8. Tell a joke
                    9. Surprise me
                    """)
-
+# asking user for choice (1-9)
 now = dt.datetime.now()
 
+# defined the variable now - actual time
+
 if user_input == "1":
-    print("Today's date and time:", now)
+    print("Today's date and time:", now)    # if user chose 1 it prints actual date and time
 elif user_input == "2":
     unix_time = tm.time()
-    print("Unix time:", unix_time)
+    print("Unix time:", unix_time)          # if user chose 2 it prints unix time
 elif user_input == "3":
     date_string = "2023-05-03"
-    converted_date = dt.datetime.strptime(date_string, "%Y-%m-%d")
+    converted_date = dt.datetime.strptime(date_string, "%Y-%m-%d") # if user chose 3 converts date_string into datetime object
     print("Date:", converted_date)
-    print("Type of converted_date:", type(converted_date))
+    print("Type of converted_date:", type(converted_date)) # prove which datatype object it is
 elif user_input == "4":
-    if cl.isleap(2023):
+    if cl.isleap(2023):                 # if user chose 4 it checks if the year is a leap year or not
         print("2023 is a leap year")
     else:
         print("2023 is not a leap year")
-    tm.sleep(3)
+    tm.sleep(3) # says the module time should pauses the code for 3 seconds
     print("Let's just check if the next year is a leap year:")
-    if cl.isleap(2024):
+    if cl.isleap(2024): # checks if the year 2024 (next year) in module calendar is a leap year
         print("2024 is a leap year")
     else:
         print("2024 is not a leap year")
 
     next_leap_year_str = "2024-01-01 00:00:01"  # the first second of the next leap year
-    converted_next_leap_year_str = dt.datetime.strptime(next_leap_year_str, "%Y-%m-%d %H:%M:%S")
-    print(f"Time remaining until the next leap year: {converted_next_leap_year_str - now} hours.")
+    converted_next_leap_year_str = dt.datetime.strptime(next_leap_year_str, "%Y-%m-%d %H:%M:%S") # converts next_leap_year_str into datetime object
+    print(f"Time remaining until the next leap year: {converted_next_leap_year_str - now} hours.") # takes the converted next leap year and subtracts it with now, shows remaining time till the next leap year
 
-    deltatime = relativedelta(now, converted_next_leap_year_str)
-    print(f"Time until the next leap year: {deltatime.years} years, {deltatime.months} months, {deltatime.days} days, {deltatime.hours} hours, {deltatime.minutes} minutes, {deltatime.seconds} seconds")
+    deltatime = relativedelta(now, converted_next_leap_year_str) # defines the variable deltatime with the function relativdelta which calculates the difference from the date mentioned, same as above just easier
+    print(f"Time until the next leap year: {deltatime.years} years, {deltatime.months} months, {deltatime.days} days, {deltatime.hours} hours, {deltatime.minutes} minutes, {deltatime.seconds} seconds") # prints years,months,days,hours,minutes and seconds left until next leap year
 elif user_input == "5":
-    print(cl.month(2023, 6))
+    print(cl.month(2023, 6)) # prints the month as the calendar
 elif user_input == "6":
 
     choose_timezone = input("""
@@ -61,7 +65,7 @@ elif user_input == "6":
     5. Johannesburg/South Africa
     (enter 1, 2, 3, 4 or 5)
     """)
-
+# asking user for choice (1-5)
     if choose_timezone == "1":
         print("Current time in Tokyo:", dt.datetime.now(pytz.timezone('Asia/Tokyo')).strftime('%Y-%m-%d %H:%M:%S'))
     elif choose_timezone == "2":
@@ -72,7 +76,7 @@ elif user_input == "6":
         print("Current time in Berlin:", dt.datetime.now(pytz.timezone('Europe/Berlin')).strftime('%Y-%m-%d %H:%M:%S'))
     elif choose_timezone == "5":
         print("Current time in Johannesburg:", dt.datetime.now(pytz.timezone('Africa/Johannesburg')).strftime('%Y-%m-%d %H:%M:%S'))
-
+# displays the current time from the chosen timezone
 elif user_input == "7":
 
     time_in_Sydney = dt.datetime.now(pytz.timezone('Australia/Sydney')).strftime('%Y-%m-%d %H:%M:%S')
